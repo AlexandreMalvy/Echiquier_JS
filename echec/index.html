@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="chess">
+        
+
+    </div>
+
+
+    <script>
+
+        // let pieces =["tour","cavalier","fou","reine","roi","fou","cavalier","tour",
+        //              "pion", "pion","pion","pion","pion","pion","pion","pion"]
+        let line = 1
+        
+
+        for(let i = 1; i<= 64;i++){
+            //créer une case div avec la classe .case
+            let cell = document.createElement("div") 
+            cell.classList.add("case")
+            //permet de faire le contraire et donc d'inverser le plateau
+            
+            
+            if(line%2!==0){
+                //une fois sur deux, ajouter la classe case noir
+                if(i % 2 == 0){
+                    cell.classList.add("caseNoir")
+                }
+            }
+            else{
+                //permet de faire une ligne sur 2
+                if(i % 2 == 1){
+                    cell.classList.add("caseNoir")
+                }
+            }
+            
+            //On ajoute les pieces
+            if(i < 17 || i>=49){
+                cell.innerHTML="<img src='img/"+(i)+".png'>"
+
+            }
+            
+            //l'ajouter dans la balise #chess
+            document.querySelector("div#chess").appendChild(cell)  
+            //on indique qu'on change de ligne toute les 8 case
+            if(i%8==0){
+                line++
+            } 
+            
+        }
+        //fonction permettant de swap 2 elements d'un tableau
+        //function Swap(arr,a, b){  
+        //     var temp;  
+        //     temp = arr[a];  
+        //     arr[a] = arr[b];  
+        //     arr[b] = temp;  
+        // } 
+        </script>
+</body>
+</html>
